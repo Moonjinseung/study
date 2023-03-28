@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS기본 선택자2</title>
+        <style>
+            /*속성선택자*/
+            div[name=name2]{
+                background-color: black;
+            }
+            div[name~=name1]{
+               color: blue;
+            }
+            div[name^=name]{
+               color: aqua;
+            }
+            div[class |= div-class]{
+               color: purple;
+            }
+
+            div[class $= class]{
+               background-color: yellowgreen;
+            }
+            /*자손/후손 선택자*/
+            #test1 > h4{
+                background-color: lightcoral;
+            }
+
+            #test1>#testul>li{
+                background-color: blue;
+            }
+
+            #div-test2+div{
+                background-color: lightcoral;
+            }
+
+            #div-test2~div{
+                color:red
+            }
+
+            #active-test,#hover-test{
+                width:100px;
+                height:100px;
+                background-color: blueviolet;
+                color:hotpink;
+            }
+
+
+            #active-test:active{
+                background-color: black;
+                color:greenyellow;
+            }
+
+            #hover-test:hover{
+                background-color: black;
+                color:greenyellow;
+            }
+
+
+
+
+
+
+        </style>
+        
+    </head>
+    <body> 
+       <h1>CSS기본 선택자2</h1>
+       <hr>
+
+       <h2>CSS속성 선택자</h2>
+        <p>기본 선택자 뒤에[]를 사용하여 특정 속성과
+            해당 속성의 값을 통해 스타일을 설정할때 사용한다.</p>
+
+        <pre>
+            선택자[속성=속성값]{...}형식으로 쓰인다
+            -- 기호 별 의미 --
+            = : 속성의 값이 같을때
+            ~= : 특정 단어를 속성값으로 가질 때(띄어쓰기된 이름 기준 구분)
+            EX) id~=test ---> id="test abcd qwer" ---- O
+                          --> id="test1234" .... X
+            |= : 특정 단어를 속성값으로 가질 때(""안에 포함되는 것 모두 확인)
+            ^= : 속성 값이 특정 단어로 끝날 때
+            *= : 속성값이 특정 단어를 포함할 때
+        </pre>
+        
+        <div name="name1" class="div-class1">테스트 div1</div>
+        <div name="name2" class="div-class div-class1">테스트 div2</div>
+        <div name="name3" class="div-class">테스트 div3</div>
+        <div name="name4" class="div-class">테스트 div4</div>
+        <div name="name5" class="div-class">테스트 div5</div>
+
+        <hr>
+
+        <h2>자손 선택자와 후손 선택자</h2>
+        <p>자손 선택자 : 바로 아래의 태그,요소
+            후손 선택자 : 하위에 존재하는 모든 요소
+        </p>
+
+        <pre> 
+            자손 선택자 : 부모 선택자 > 자손 선택자{...}
+            후손 선택자 : 선조 선택자 후손 선택자{...}
+        </pre>
+
+        <div id="test1">
+            <h4>나는 자손 h4 태그입니다.</h4>
+            <h4>나는 자손 h4 태그입니다.</h4>
+            <ul id="test">나는 ul의 자손이자 div의 후손입니다
+                    <li>나는 ul의 자손이자 div의 후손입니다. </li>
+                    <li>나는 ul의 자손이자 div의 후손입니다. </li>
+                    <li>나는 ul의 자손이자 div의 후손입니다. </li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>도위 선택자</h2>
+        <p>동위 선택자는 동급관계에 있는 형제 요소에 스타일을
+            설정할때 사용한다.
+        </p>
+        <pre>
+            선택자A+선택자B {...} : A바로 뒤에 잇는 B 요소를 선택할때
+            선택자A~선택자B {...} : A뒤의 모든 B요소를 선택할때
+        </pre>
+
+        <div id="div-test1">DIV-TEST1</div>
+        <div id="div-test2">DIV-TEST2</div>
+        <div id="div-test3">DIV-TEST3</div>
+        <div id="div-test4">DIV-TEST4</div>
+        <div id="div-test5">DIV-TEST5</div>
+
+        <hr>
+
+        <h2>반응 선택자</h2>
+        <P>
+            사용자의 움직임(마우스 클릭,마우스를 올려 놓았을때)을 감지하여
+            스타일을 변경하는 선택자이다.
+        </P>
+        <pre>
+            선택자 :active{...} / 사영자가 마우스를 클릭했을때
+            선택자 :hover{...} / 마우스 커서가 해당 요소 위에 올라갔을때
+        </pre>
+
+        <div id="active-test">Active 테스트  입니다.</div>
+        <div id="hover-test">Hover 테스트  입니다.</div>
+
+        <hr>
+
+        <h2>상태 선택자</h2>
+        <P>
+            입력형식에 따라 변화하는 스타일을 설정할때 사용한다
+        </p>
+        <pre>
+            input:checked{...} / 체그 상태 여부에 따른 스타일
+        </pre>
+
+        <input type="checkbox" name="fruits" id="apple">
+        <label for="apple">사과</label>
+        <input type="checkbox" name="fruits" id="banana">
+        <label for="apple">바나나</label>
+        <input type="checkbox" name="fruits" id="orange">
+        <label for="orange">오렌지</label>
+
+        <p>focus(촛점)가 맞춰진 상태에서 스타일 적용도 가능하다.</p>
+        <label>비밀번호 : </label>
+        <input type="password" id="testpwd" placeholder="비밀번호를 입력하세요.">
+
+        <br>
+
+        <p>사용 가능 여부와 관련한 스타닝ㅇ 적용도 가능하다.</p>
+        입장 가능 나이(20~40세) :
+        <select>
+            <option value="10" disabled>10대</option>
+            <option value="20">20대</option>
+            <option value="30">30대</option>
+            <option value="40">40대</option>
+            <option value="50" disabled>50대</option>
+        </select>
+    </body>
+</html>

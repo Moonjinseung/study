@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <style>
+            header{
+                border:1px solid black;
+                background:orange 
+            }
+
+            section{
+                border:1px solid black;
+                background:lightblue;
+            }
+
+            article{
+                border:1px solid black;
+                background:yellow;
+            }
+
+            aside{
+                border:1px solid black;
+                background:yellow;
+            }
+
+
+            footer{
+                border:1px solid black;
+                background:gray;
+                color:white;
+            }
+
+        </style>
+    </head>
+    <bodY>
+        <!--
+            시멘틱(sementic)태그:
+            웹근접성 및 웝 문서의 구조화와 관련하여
+            기존에 div형태로 나누엇던 구조를
+            별도의 태그 형식으로 정의한 태그들
+            <div id="header"> => <header>
+                <header> : 머리글
+                <nav> : 주메뉴
+                <section> : 주제관련 내용
+                <article> : 주제 관련 글 하나하나의 내용
+                <aside> : 주제와 관련된 부가 내용,관련 없는 내용
+                <footer> : 웹문서의 저자,저작권등을 명시하는 내용
+
+        -->
+        <header>
+            <!-- 웹문서의 척 머리글-->
+            머리글 입니다
+            <nav>
+                <!--웹문서의 주메뉴-->
+                <ul>
+                    <li>공지사항</li>
+                    <li>계시판</li>
+                    <li>기타사항</li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            주제와 관련된 영역입니다
+            <!-- 해당 웹문서의 주제와 목적등에 관련된 내용을 시술하는 영역-->
+            <article>
+                <p>첫번째 내용 입니다</p>
+            </article>
+            <article>
+                <p>두번째 내용 입니다</p>
+            </article>
+
+            <article>
+                <p>세번째 내용 입니다</p>
+            </article>
+        </section>
+        <aside>
+            주제와 무관하가나 관련이 조금 있는 영역입니다.   
+        </aside>
+        <footer>
+            <!-- 해당 웹문서의 저자나 저작권 회사면 등을 명시하는 영역-->
+            Copylight by IoT Class.org
+        </footer>
+    </bodY>
+
+</html>
